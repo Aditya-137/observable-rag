@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+
+}
+
+datasource db {
+  provider = "postgresql"
+  extensions = [vector]
+}
+
+// model User {
+//   id        String     @id @default(cuid())
+//   email     String     @unique
+//   name      String
+//   createdAt DateTime   @default(now())
+//   documents Document[]
+// }
+
+model Document {
+  id          String   @id @default(cuid())
+  name        String
+  content     String   // raw extracted text from LlamaParse
+  createdAt   DateTime @default(now())
+  chunks      Chunk[]
+  // user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // userId      String
+}
+
+model Chunk {
+  id         String                  @id @default(cuid())
+  content    String                  // the actual chunk text
+  embedding  Unsupported("vector(768)")  // pgvector column
+  document   Document                @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  documentId String
+  chunkIndex Int                     // position in document, useful for context
+  createdAt  DateTime                @default(now())
+}
