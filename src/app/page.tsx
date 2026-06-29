@@ -1,3 +1,5 @@
+import Documents from "./Documents";
+import Search from "./Search";
 import Upload from "./Upload";
 
 export default function Home() {
@@ -5,6 +7,8 @@ export default function Home() {
     <div>
       Home Page
       <Upload />
+      <Documents />
+      <Search />
     </div>
   );
 }

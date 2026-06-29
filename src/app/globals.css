@@ -5,6 +5,15 @@
   --foreground: #171717;
 }
 
+input::-webkit-search-cancel-button,
+input::-webkit-clear-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input:focus {
+  
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
