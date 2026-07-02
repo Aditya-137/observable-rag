@@ -1,19 +1,32 @@
 "use client";
 
+import axios from "axios";
+import { useState } from "react";
+
 function Search() {
+  const [query, setQuery] = useState("");
   return (
     <form
       className="flex justify-center gap-4"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         console.log("Done!!");
         e.preventDefault();
+        console.log("Query: ", query);
+        const res = await axios.put("http://localhost:3000/api/query", {
+            query : query
+        });
+        console.log(res);
+        setQuery("");
       }}
     >
       <input
         type="search"
         placeholder="Search..."
         className="w-[60%] min-w-125 px-4 py-2 border rounded-full focus:outline-none focus:ring-0 font-bold"
-        
+        value={query}
+        onChange={(e) => {
+            setQuery(e.target.value.trim());
+        }}
       />
       <button
         type="submit"

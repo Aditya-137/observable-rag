@@ -1,8 +1,8 @@
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { LlamaCloud } from "@llamaindex/llama-cloud";
 import { NextRequest, NextResponse } from "next/server";
-import embeddings from "./embeddings";
-import { prisma } from "@/lib/prisma";
+import embeddings from "../embeddings";
+import { prisma } from "../../../lib/prisma";
 import crypto from "crypto";
 
 export async function POST(req: NextRequest) {
@@ -39,16 +39,16 @@ export async function POST(req: NextRequest) {
   console.log("No of splitts: ", response.length);
 
   // for (let res in response){
-    const emb = await embeddings({chunks : response});
-    console.log(emb);
+  const emb = await embeddings({ chunks: response });
+  console.log(emb);
   // }
 
   const insertDocumet = {
-      name : fileName,
-      content : result.text_full!,
-    };
+    name: fileName,
+    content: result.text_full!,
+  };
   const doc = await prisma.document.create({
-    data : insertDocumet
+    data: insertDocumet
   })
   const insertPromises = [];
   for (let i = 0; i < emb!.length; i++) {
