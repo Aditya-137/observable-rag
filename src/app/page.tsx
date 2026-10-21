@@ -1,6 +1,6 @@
-import LeftPanel from "./LeftPanel";
-import MiddlePannel from "./MiddlePannel";
-import RightPannel from "./RightPannel";
+import LeftPanel from "@/components/panels/LeftPanel";
+import MiddlePannel from "@/components/panels/MiddlePannel";
+import RightPannel from "@/components/panels/RightPannel";
 
 export default function Home() {
   return (

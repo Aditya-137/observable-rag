@@ -1,8 +1,8 @@
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { LlamaCloud } from "@llamaindex/llama-cloud";
 import { NextRequest, NextResponse } from "next/server";
-import embeddings from "../embeddings";
-import { prisma } from "../../../lib/prisma";
+import embeddings from "@/services/embeddings";
+import { prisma } from "@/lib/prisma";
 import crypto from "crypto";
 
 export async function POST(req: NextRequest) {

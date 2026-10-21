@@ -1,4 +1,4 @@
-import Search from "./Search";
+import Search from "@/components/common/Search";
 
 export default function MiddlePannel() {
     return <div className="flex flex-col h-full flex-2">

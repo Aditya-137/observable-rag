@@ -1,9 +1,9 @@
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { Groq } from "groq-sdk";
 import { ChatCompletionMessageParam } from "groq-sdk/resources/chat.js";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
-import embeddings from "../embeddings";
+import embeddings from "@/services/embeddings";
 
 const queryRequest = z.object({
   query: z.string().min(1),

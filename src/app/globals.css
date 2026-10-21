@@ -10,9 +10,9 @@ input::-webkit-clear-button {
   -webkit-appearance: none;
   appearance: none;
 }
-input:focus {
+/* input:focus {
   
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
