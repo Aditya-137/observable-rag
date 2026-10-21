@@ -1,11 +1,11 @@
-import { ContentEmbedding } from "@google/genai";
+// import { ContentEmbedding } from "@google/genai";
 
-interface pushDBInteface {
-    chucks : string[],
-    vectors : ContentEmbedding[],
+// interface pushDBInteface {
+//     chucks : string[],
+//     vectors : ContentEmbedding[],
     
-}
+// }
 
-export default async function pushDB({} : pushDBInteface){
+// export default async function pushDB({} : pushDBInteface){
 
-}
+// }
